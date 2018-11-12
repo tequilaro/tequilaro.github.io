@@ -21,12 +21,7 @@
 
  一.第一种方法是将二维矩阵转变为图片。因为观察自己的数据均在0-255之间，可以转变为RGB色彩模式，所以预期是期望将每个5*3的二维矩阵转变为一个以RGB格式存储的图片。之后再利用之前的流程进行图片数据的处理，针对不同的图片在打不同的标签。但是通过尝试之后，发现将二维矩阵转变为RGB方式存储后的得到的图片，通过已经搭建好的网络进行训练时，accuracy一直为1，或者为0。loss也高达88.3365。
  不论如何调整学习率都不能得到理想的结果。而且通过我们肉眼也发现将我们之前的二维矩阵转变为图片也的确没有特征可言。下面是我的几个处理好的二维矩阵，与之相对应的是通过程序将其转变为RGB三通道的图片。
-![这里是我的一个5*3的二维矩阵](//img-blog.csdn.net/20180320142309770?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3RlcXVpbGFybw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-下图为通过代码将其转变为的RGB格式存储的图片。
-![这里是通过程序转换为RGB格式存储的图片](//img-blog.csdn.net/20180320142116946?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3RlcXVpbGFybw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-![这里写图片描述](//img-blog.csdn.net/20180320142709142?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3RlcXVpbGFybw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-![这里写图片描述](//img-blog.csdn.net/20180320142729343?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3RlcXVpbGFybw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-但是通过肉眼发现转储的图片中并没有所谓的特征所言，也提取不出相关的特征数据，所以经过讨论否定了这种方法。虽说这种方法并没有得到合适的图片特征提取，但是这种思考方式值得大家参考。
+
 ```
 plt.imshow(A[i])
 #是利用这行代码将二维矩阵数据转换为RGB格式存储的图片
@@ -109,9 +104,7 @@ with env.begin(write=True) as txn:
 通过学习对原网络进行了调整以及修改，而且增加了mirror:true目的是为了对数据进行预处理，对数据进行镜像处理。
 ######3.调整网络参数
 ######4.训练网络
-最终通过训练网络，在迭代了1000次之后得到的准确率以及损失率如图所示，得到了相对满意的结果。
-![accuracy](//img-blog.csdn.net/20180320153515326?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3RlcXVpbGFybw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-![loss](//img-blog.csdn.net/20180320153530124?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3RlcXVpbGFybw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+最终通过训练网络，在迭代了1000次之后得到的准确率以及损失率，得到了相对满意的结果。
 #####本篇文章主要涉及到的是将二维矩阵转变为图片从中提取特征或者直接存储为lmdb格式从中提取特征两种方法的介绍，如果本篇文章中有什么不正确之处也欢迎大家指出，共同学习，谢谢。
 
 
