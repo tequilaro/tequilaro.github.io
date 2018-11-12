@@ -68,7 +68,7 @@ netease_comment: false
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "中国石油大学（北京）<br>昌平，北京，中国"
-sidebar-avatar: /img/mypic3.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/c.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
